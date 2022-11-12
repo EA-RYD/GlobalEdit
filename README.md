@@ -6,6 +6,9 @@
 2. Brush up and get yjs to work.
 
 ## Notes
+https://github.com/yjs/y-monaco/issues/6
+
+
 It's important to mention that according to monaco-editor, the whole supported languages are divided into two groups:
 
     languages that have rich IntelliSense and validation
