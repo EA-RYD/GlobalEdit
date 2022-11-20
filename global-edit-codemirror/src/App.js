@@ -1,25 +1,15 @@
 import './App.css';
-import Editor from "./Editor";
-//import { javascript } from '@codemirror/lang-javascript';
+import Editor from "./components/Editor";
+import Header from "./components/Header";
+import Side from "./components/Sidebar";
 
 function App() {
-
-  function swapTheme() {
-  }
-  function showValue() {
-    
-  }
 
   return (
     <div className="App">
       <Editor className="codemirror"/>
-      <div className="header">
-        <h1 className="name">GlobalEdit</h1>
-      </div>
-      <div className='options'>
-        <button onClick={showValue}>Show value</button> 
-        <button onClick={swapTheme}>Swap Theme</button> 
-      </div>
+      <Header className="header"/>
+      <Side className="sidebar"/>
     </div>
   );
 }

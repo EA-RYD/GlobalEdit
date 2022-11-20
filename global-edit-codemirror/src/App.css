@@ -1,29 +1,33 @@
 .App {
   height: 100vh;
-  width: 100vw;
-  display: grid;
+  max-height: 100vh;
+  width: 100vw !important;
+  display: grid;  
   grid-template-columns: 0.2fr 0.8fr;
   grid-template-rows: 0.12fr 0.88fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  grid-template-areas: "head head"
-                       "opt codemirror";
+  grid-template-areas: 'head head'
+                       'side codemirror';
 }
 
 
 .header { 
-  background-color: rgba(13, 38, 85, 0.654);
   grid-area: head;
 }
-.options { 
-  background-color: rgba(18, 16, 16, 0.895);
-  grid-area: opt;
+.sidebar { 
+  grid-area: side;
+
 }
 .codemirror { 
+  background-color: rgba(190, 45, 45, 0.895);
   grid-area: codemirror; 
+  font-size: 14px;
+  max-height: 100%;
 }
   
 
 .name {
   text-align: left;
+  text-justify: auto;
 }
