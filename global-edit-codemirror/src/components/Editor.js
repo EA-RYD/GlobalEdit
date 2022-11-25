@@ -12,12 +12,18 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material-darker.css";
 
 const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
+let editorInstance = null;
 
+let startName = uniqueNamesGenerator({
+  dictionaries: [adjectives, animals],
+  length: 2
+});
 
 const Editor = () => {
   CodeMirror.defineSimpleMode("simplemode", mode);
   const [name, setName] = useState("Name");
   const [color, setColor] = useState("#000000");
+  //const [mode, setMode] = useState();
   const room = "globaledit"
   //let { id } = useParams();
   //console.log(id);
@@ -31,9 +37,9 @@ const Editor = () => {
             const yUndoManager = new Y.UndoManager(yText);
 
             var e = new CodeMirror(document.getElementById("editor"), {
-                mode: 'javascript',
+                mode: 'plaintext',
                 lineNumbers: true,
-                theme: "material-darker",
+                theme: "material-darker", 
                 autoCloseTags: true,
                 matchBrackets: true,
                 autoCloseBrackets: true,
@@ -42,6 +48,7 @@ const Editor = () => {
             }); 
 
             e.setSize('100%', '100%');
+            editorInstance = e;
 
             window.binding = new CodemirrorBinding(yText, e, provider.awareness, {
                 yUndoManager
@@ -57,7 +64,7 @@ const Editor = () => {
             console.log("connect to", room);
             window.binding.awareness.setLocalStateField("user", {
                 color: color,
-                name: "default"
+                name: startName
             });
             
         } catch (e) {
@@ -67,8 +74,11 @@ const Editor = () => {
     console.log("rendered!");
   }, []);
   return (
-    <div id="editor" ></div>
+    
+    <div id="editor" >
+      
+    </div>
   );
 };
 
-export default Editor;
+export  {startName,editorInstance,Editor};
