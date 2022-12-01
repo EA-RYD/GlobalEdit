@@ -47,7 +47,7 @@ const Editor = () => {
                 lineWrapping: true,
             }); 
 
-            e.setSize('100%', '100%');
+            e.setSize('100%', '88vh');
             editorInstance = e;
 
             window.binding = new CodemirrorBinding(yText, e, provider.awareness, {
