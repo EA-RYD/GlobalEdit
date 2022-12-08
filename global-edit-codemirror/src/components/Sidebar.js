@@ -74,6 +74,26 @@ const Side = () => {
         console.log(tempArr)
         setUsers(tempArr);
     }
+
+    if (window.binding != null) {
+        window.binding.awareness.on('change', () => {
+            const tempArr = [];
+            window.binding.awareness.getStates().forEach(state => {
+                console.log(state)
+                if (state.user) {
+                    tempArr.push([state.user.name,state.user.color]);
+                }
+            })
+            console.log(tempArr)
+            setUsers(tempArr);
+        })
+    } 
+
+    useEffect(() => {
+        const tempArr = [];
+        tempArr.push([name,color]);
+        setUsers(tempArr);
+    }, []);
     
     return (
         <Flex className="sidebar" minWidth='max-content' direction='column' alignItems='center' gap='1'>
@@ -138,9 +158,7 @@ const Side = () => {
             </Select>
             <Box p='2'>
                 <Flex id="userheader" minWidth='max-content' alignItems='center'>
-                    <Heading w='230px' backgroundColor="chakra-subtle-bg" size='md' align="center">User List</Heading>
-                    <Button  border='1px' w='40px' height='25px' iconSpacing="-0.5" rightIcon={<RepeatIcon />} variant='solid' onClick={updateUsers}>
-                    </Button>
+                    <Heading w='270px' backgroundColor="chakra-subtle-bg" size='md' align="center">User List</Heading>
                 </Flex>
                 <Box height="2xl">
                     {users.map.length > 0 &&
