@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Plaintext",
+      "value": "plaintext"
+    },
+    {
+      "name": "C++",
+      "value": "text/x-c++src"
+    },
+    {
+      "name": "Java",
+      "value": "text/x-java"
+    },
+    {
+      "name": "Golang",
+      "value": "text/x-go"
+    },
+    {
+      "name": "Javascript",
+      "value": "text/javascript"
+    },
+    {
+      "name": "Python",
+      "value": "text/x-python"
+    }
+  ]
+  
